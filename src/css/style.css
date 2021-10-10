@@ -1,0 +1,12 @@
+button {
+  color: bisque;
+  background: cadetblue;
+  padding: 10px;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.noactive {
+  color: bisque;
+  background: dimgray;
+}

@@ -456,6 +456,7 @@ function hmrAcceptRun(bundle, id) {
 
 },{}],"6cF5V":[function(require,module,exports) {
 var _styleCss = require("./css/style.css");
+var _refsJs = require("./refs.js");
 const colors = [
     '#FFFFFF',
     '#2196F3',
@@ -464,15 +465,53 @@ const colors = [
     '#009688',
     '#795548', 
 ];
-const refs = {
-    btnStart: document.querySelector('[data-action="start"]'),
-    btnStop: document.querySelector('[data-action="stop"]')
-};
 const { btnStart , btnStop  } = refs;
 const randomIntegerFromInterval = (min, max)=>{
     return Math.floor(Math.random() * (max - min + 1) + min);
 };
+let intervalId = null;
 
-},{"./css/style.css":"6rgJB"}],"6rgJB":[function() {},{}]},["2ME0v","6cF5V"], "6cF5V", "parcelRequireb877")
+},{"./css/style.css":"6rgJB","./refs.js":"8pFt4"}],"6rgJB":[function() {},{}],"8pFt4":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+exports.default = {
+    body: document.querySelector("body"),
+    btnStart: document.querySelector('[data-action="start"]'),
+    btnStop: document.querySelector('[data-action="stop"]')
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"JacNc"}],"JacNc":[function(require,module,exports) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, '__esModule', {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === 'default' || key === '__esModule') return;
+        // Skip duplicate re-exports when they have the same value.
+        if (key in dest && dest[key] === source[key]) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
+
+},{}]},["2ME0v","6cF5V"], "6cF5V", "parcelRequireb877")
 
 //# sourceMappingURL=index.5cb7de60.js.map
