@@ -1,5 +1,8 @@
-import './css/style.css'
-import './refs.js'
+// import './css/style.css'
+import refs from './js/refs.js'
+
+const { btnStart, btnStop, body } = refs;
+
 
 
 const colors = [
@@ -12,13 +15,42 @@ const colors = [
 ];
 
 
-const { btnStart, btnStop } = refs
 
+let intervalId = null;
 
 const randomIntegerFromInterval = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
 };
 
-let intervalId = null;
+
+
+function changeColor() {
+  body.style.backgroundColor =
+    colors[randomIntegerFromInterval(0, 5)]
+}
+
+
+function changeEnableButton(btn) {
+  btn.classList.contains('noactive')
+    ? btn.removeAttribute('noactive')
+    : btn.setAttribute('noactive', true)
+  btn.classList.toggle('noactive')
+}
+
+function onStartInterval(e) {
+    intervalId = setInterval(changeColor, 1000);
+    changeEnableButton(btnStop);
+    changeEnableButton(btnStart);
+}
+
+function onStopInterval() {
+  clearInterval(intervalId)
+  changeEnableButton(btnStop)
+  changeEnableButton(btnStart)
+}
+
+btnStop.classList.add('noactive')
+btnStart.addEventListener('click', onStartInterval)
+btnStop.addEventListener('click', onStopInterval)
 
 

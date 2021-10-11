@@ -140,12 +140,12 @@
       this[globalName] = mainExports;
     }
   }
-})({"2ME0v":[function(require,module,exports) {
+})({"k6yyD":[function(require,module,exports) {
 var HMR_HOST = null;
 var HMR_PORT = null;
-var HMR_SECURE = true;
+var HMR_SECURE = false;
 var HMR_ENV_HASH = "69f74e7f31319ffd";
-module.bundle.HMR_BUNDLE_ID = "92d425515cb7de60";
+module.bundle.HMR_BUNDLE_ID = "3e1d084b4c8d481a";
 "use strict";
 function _createForOfIteratorHelper(o, allowArrayLike) {
     var it;
@@ -454,46 +454,7 @@ function hmrAcceptRun(bundle, id) {
     acceptedAssets[id] = true;
 }
 
-},{}],"6cF5V":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-// import './css/style.css'
-var _refsJs = require("./js/refs.js");
-var _refsJsDefault = parcelHelpers.interopDefault(_refsJs);
-const { btnStart , btnStop , body  } = _refsJsDefault.default;
-const colors = [
-    '#FFFFFF',
-    '#2196F3',
-    '#4CAF50',
-    '#FF9800',
-    '#009688',
-    '#795548', 
-];
-let intervalId = null;
-const randomIntegerFromInterval = (min, max)=>{
-    return Math.floor(Math.random() * (max - min + 1) + min);
-};
-function changeColor() {
-    body.style.backgroundColor = colors[randomIntegerFromInterval(0, 5)];
-}
-function changeEnableButton(btn) {
-    btn.classList.contains('noactive') ? btn.removeAttribute('noactive') : btn.setAttribute('noactive', true);
-    btn.classList.toggle('noactive');
-}
-function onStartInterval(e) {
-    intervalId = setInterval(changeColor, 1000);
-    changeEnableButton(btnStop);
-    changeEnableButton(btnStart);
-}
-function onStopInterval() {
-    clearInterval(intervalId);
-    changeEnableButton(btnStop);
-    changeEnableButton(btnStart);
-}
-btnStop.classList.add('noactive');
-btnStart.addEventListener('click', onStartInterval);
-btnStop.addEventListener('click', onStopInterval);
-
-},{"./js/refs.js":"1OJWI","@parcel/transformer-js/src/esmodule-helpers.js":"JacNc"}],"1OJWI":[function(require,module,exports) {
+},{}],"1OJWI":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 exports.default = {
@@ -534,6 +495,6 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}]},["2ME0v","6cF5V"], "6cF5V", "parcelRequireb877")
+},{}]},["k6yyD","1OJWI"], "1OJWI", "parcelRequireb877")
 
-//# sourceMappingURL=index.5cb7de60.js.map
+//# sourceMappingURL=index.4c8d481a.js.map

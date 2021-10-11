@@ -140,12 +140,12 @@
       this[globalName] = mainExports;
     }
   }
-})({"2ME0v":[function(require,module,exports) {
+})({"hX0o3":[function(require,module,exports) {
 var HMR_HOST = null;
 var HMR_PORT = null;
 var HMR_SECURE = true;
 var HMR_ENV_HASH = "69f74e7f31319ffd";
-module.bundle.HMR_BUNDLE_ID = "92d425515cb7de60";
+module.bundle.HMR_BUNDLE_ID = "ad4184af94e89cdd";
 "use strict";
 function _createForOfIteratorHelper(o, allowArrayLike) {
     var it;
@@ -454,86 +454,8 @@ function hmrAcceptRun(bundle, id) {
     acceptedAssets[id] = true;
 }
 
-},{}],"6cF5V":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-// import './css/style.css'
-var _refsJs = require("./js/refs.js");
-var _refsJsDefault = parcelHelpers.interopDefault(_refsJs);
-const { btnStart , btnStop , body  } = _refsJsDefault.default;
-const colors = [
-    '#FFFFFF',
-    '#2196F3',
-    '#4CAF50',
-    '#FF9800',
-    '#009688',
-    '#795548', 
-];
-let intervalId = null;
-const randomIntegerFromInterval = (min, max)=>{
-    return Math.floor(Math.random() * (max - min + 1) + min);
-};
-function changeColor() {
-    body.style.backgroundColor = colors[randomIntegerFromInterval(0, 5)];
-}
-function changeEnableButton(btn) {
-    btn.classList.contains('noactive') ? btn.removeAttribute('noactive') : btn.setAttribute('noactive', true);
-    btn.classList.toggle('noactive');
-}
-function onStartInterval(e) {
-    intervalId = setInterval(changeColor, 1000);
-    changeEnableButton(btnStop);
-    changeEnableButton(btnStart);
-}
-function onStopInterval() {
-    clearInterval(intervalId);
-    changeEnableButton(btnStop);
-    changeEnableButton(btnStart);
-}
-btnStop.classList.add('noactive');
-btnStart.addEventListener('click', onStartInterval);
-btnStop.addEventListener('click', onStopInterval);
+},{}],"662OV":[function(require,module,exports) {
 
-},{"./js/refs.js":"1OJWI","@parcel/transformer-js/src/esmodule-helpers.js":"JacNc"}],"1OJWI":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-exports.default = {
-    body: document.querySelector('body'),
-    btnStart: document.querySelector('[data-action="start"]'),
-    btnStop: document.querySelector('[data-action="stop"]')
-};
+},{}]},["hX0o3","662OV"], "662OV", "parcelRequireb877")
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"JacNc"}],"JacNc":[function(require,module,exports) {
-exports.interopDefault = function(a) {
-    return a && a.__esModule ? a : {
-        default: a
-    };
-};
-exports.defineInteropFlag = function(a) {
-    Object.defineProperty(a, '__esModule', {
-        value: true
-    });
-};
-exports.exportAll = function(source, dest) {
-    Object.keys(source).forEach(function(key) {
-        if (key === 'default' || key === '__esModule') return;
-        // Skip duplicate re-exports when they have the same value.
-        if (key in dest && dest[key] === source[key]) return;
-        Object.defineProperty(dest, key, {
-            enumerable: true,
-            get: function() {
-                return source[key];
-            }
-        });
-    });
-    return dest;
-};
-exports.export = function(dest, destName, get) {
-    Object.defineProperty(dest, destName, {
-        enumerable: true,
-        get: get
-    });
-};
-
-},{}]},["2ME0v","6cF5V"], "6cF5V", "parcelRequireb877")
-
-//# sourceMappingURL=index.5cb7de60.js.map
+//# sourceMappingURL=goit-js-hw-11-color-switch.94e89cdd.js.map
