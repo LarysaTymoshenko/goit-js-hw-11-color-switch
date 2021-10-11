@@ -1,4 +1,4 @@
-// import './css/style.css'
+
 import refs from './js/refs.js'
 
 const { btnStart, btnStop, body } = refs;
@@ -18,6 +18,8 @@ const colors = [
 
 let intervalId = null;
 
+// btnStop.noactive = true;
+
 const randomIntegerFromInterval = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
 };
@@ -26,31 +28,29 @@ const randomIntegerFromInterval = (min, max) => {
 
 function changeColor() {
   body.style.backgroundColor =
-    colors[randomIntegerFromInterval(0, 5)]
+    colors[randomIntegerFromInterval(0, colors.length - 1)];
 }
 
 
-function changeEnableButton(btn) {
-  btn.classList.contains('noactive')
-    ? btn.removeAttribute('noactive')
-    : btn.setAttribute('noactive', true)
-  btn.classList.toggle('noactive')
+function onStartInterval() {
+  intervalId = setInterval(changeColor, 1000);
+  btnStart.noactive = true;
+
+btnStop.noactive = !btnStart.noactive;
+  btnStart.classList.add('noactive');
+   btnStop.classList.remove('noactive');
 }
 
-function onStartInterval(e) {
-    intervalId = setInterval(changeColor, 1000);
-    changeEnableButton(btnStop);
-    changeEnableButton(btnStart);
+function onStopInterval(){
+ clearInterval(intervalId);
+  btnStart.noactive = false?
+  btnStop.noactive = !btnStart.noactive:
+  btnStart.classList.remove('noactive')
+  btnStop.classList.add('noactive');
 }
 
-function onStopInterval() {
-  clearInterval(intervalId)
-  changeEnableButton(btnStop)
-  changeEnableButton(btnStart)
-}
 
-btnStop.classList.add('noactive')
-btnStart.addEventListener('click', onStartInterval)
-btnStop.addEventListener('click', onStopInterval)
+btnStart.addEventListener('click', onStartInterval);
+btnStop.addEventListener('click', onStopInterval);
 
 

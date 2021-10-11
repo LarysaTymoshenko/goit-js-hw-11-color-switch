@@ -456,7 +456,6 @@ function hmrAcceptRun(bundle, id) {
 
 },{}],"6cF5V":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-// import './css/style.css'
 var _refsJs = require("./js/refs.js");
 var _refsJsDefault = parcelHelpers.interopDefault(_refsJs);
 const { btnStart , btnStop , body  } = _refsJsDefault.default;
@@ -469,27 +468,25 @@ const colors = [
     '#795548', 
 ];
 let intervalId = null;
+// btnStop.noactive = true;
 const randomIntegerFromInterval = (min, max)=>{
     return Math.floor(Math.random() * (max - min + 1) + min);
 };
 function changeColor() {
-    body.style.backgroundColor = colors[randomIntegerFromInterval(0, 5)];
+    body.style.backgroundColor = colors[randomIntegerFromInterval(0, colors.length - 1)];
 }
-function changeEnableButton(btn) {
-    btn.classList.contains('noactive') ? btn.removeAttribute('noactive') : btn.setAttribute('noactive', true);
-    btn.classList.toggle('noactive');
-}
-function onStartInterval(e) {
+function onStartInterval() {
     intervalId = setInterval(changeColor, 1000);
-    changeEnableButton(btnStop);
-    changeEnableButton(btnStart);
+    btnStart.noactive = true;
+    btnStop.noactive = !btnStart.noactive;
+    btnStart.classList.add('noactive');
+    btnStop.classList.remove('noactive');
 }
 function onStopInterval() {
     clearInterval(intervalId);
-    changeEnableButton(btnStop);
-    changeEnableButton(btnStart);
+    btnStart.noactive = btnStart.classList.remove('noactive');
+    btnStop.classList.add('noactive');
 }
-btnStop.classList.add('noactive');
 btnStart.addEventListener('click', onStartInterval);
 btnStop.addEventListener('click', onStopInterval);
 
